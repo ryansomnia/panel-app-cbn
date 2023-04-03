@@ -1,0 +1,93 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 100vh;
+}
+.left{
+    background-color: #146C94;
+    width: 50%;
+}
+.right{
+    background-color: #FFFFFF;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-section{
+    background-color: #146C94;
+    border-radius: 15px;
+    height: 50%;
+    width: 50%;
+}
+.text-area{
+    padding: 20px 20px 10px 20px;
+}
+.text-area h1{
+    margin: 20px 0px 0px 20px;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+.text-area p{
+    margin: 5px 0px 10px 20px;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    font-size:small;
+}
+.username-area{
+    padding: 0px 20px 0px 20px;
+}
+.username-input{
+    margin: 5px 0px 10px 20px;
+    height: 35px;
+    width: 85%;
+    font-size: 15px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.password-area{
+    padding: 0px 20px 0px 20px;
+}
+.password-input{
+    margin: 5px 20px;
+    height: 35px;
+    width: 85%;
+    font-size: 15px;
+    padding: 0px 0px 0px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.forgot-area{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 40px;
+
+}
+.forgot-area p{
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+}
+.forgot-area button{
+    margin-top: 12px;
+    height: 25px;    
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+  }
+  .btn-login{
+    margin-left: 40px;
+    height: 45px;
+    width: 80%;
+    font-family: 'Nunito', sans-serif;
+    font-size: large;
+    font-weight:900;
+    border-radius: 10px;
+    color:#146C94;
+    background-color: #FFFFFF;
+  }
