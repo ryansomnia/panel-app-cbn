@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 export default function Login() {
 
-  const api = `89.116.228.164:5001/cbn/v1/admin/login`;
+  const api = `http://89.116.228.164:5001/cbn/v1/admin/login`;
 
 const [username, setUsername] =useState("");
 const [password, setPassword] =useState("");
@@ -21,18 +21,16 @@ const saveUser = async(e) =>{
         });
         Toast.fire({
           icon: 'success',
-          title: `Selamat datang <br> ${res.data.data}`
+          title: `Selamat datang <br> ${res.data.data.fullName}`
         })
-        
         localStorage.setItem('user', res.data.data)
         navigate("/dashboard")
       } catch (err) {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
-          text: 'Anda memasukan Username atau Password yang salah !'
+          title: err.response.data.message,
+          text: err.response.data.error
         })
-        console.log('err',err.response.status);
       }
 }
 
@@ -84,8 +82,8 @@ const Toast = Swal.mixin({
             <p>Forget Password? </p>
           <button>Click Here</button>
           </div>
-          </form>
           <button className="btn-login" type='submit'>LOGIN</button>
+          </form>  
       
         </div>
       
