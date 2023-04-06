@@ -10,9 +10,11 @@ export default function DataArtikel() {
 
   const getData = async () => {
     try {
-        let res = await axios.get(api + 'cbn/v1/artikel/getAllArticle');
-        setData(res.data);
-        console.log(res.data);
+      const token = localStorage.getItem("user"); // get JWT token from localStorage
+        let res = await axios.get(api + 'cbn/v1/artikel/getAllArticle', {
+          headers: { Authorization: `Bearer ${token}` }, // add Authorization header with token
+        });
+        setData(res.data.data);
     } catch (err) {
         console.log("err", err.response.status);
     }

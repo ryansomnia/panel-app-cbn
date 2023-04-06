@@ -12,27 +12,28 @@ const [password, setPassword] =useState("");
 
 const navigate = useNavigate(); 
 
-const saveUser = async(e) =>{
+
+const saveUser = async (e) => {
   e.preventDefault();
-      try {
-       let res =  await axios.post(api, {
-          username,
-          password
-        });
-        Toast.fire({
-          icon: 'success',
-          title: `Selamat datang <br> ${res.data.data.fullName}`
-        })
-        localStorage.setItem('user', res.data.data)
-        navigate("/dashboard")
-      } catch (err) {
-        Swal.fire({
-          icon: 'error',
-          title: err.response.data.message,
-          text: err.response.data.error
-        })
-      }
-}
+  try {
+    let res = await axios.post(api, {
+      username,
+      password,
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Selamat datang <br> ${res.data.data.fullName}`
+    })
+    localStorage.setItem("user", res.data.data.accessToken); // store JWT token in localStorage
+    navigate("/dashboard");
+  } catch (err) {
+    Swal.fire({
+      icon: "error",
+      title: err.response.data.message,
+      text: err.response.data.error,
+    });
+  }
+};
 
 const Toast = Swal.mixin({
   toast: true,
