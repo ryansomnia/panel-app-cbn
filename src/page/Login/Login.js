@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 export default function Login() {
 
-  const api = `http://89.116.228.164:5001/cbn/v1/admin/login`;
+  const api = `http://localhost:5001/cbn/v1/admin/login`;
 
 const [username, setUsername] =useState("");
 const [password, setPassword] =useState("");
@@ -27,6 +27,11 @@ const saveUser = async (e) => {
     localStorage.setItem("user", res.data.data.accessToken); // store JWT token in localStorage
     navigate("/dashboard");
   } catch (err) {
+    
+    if (err.code === "ERR_NETWORK"){
+      console.log("ERR_NETWORK");
+      navigate("/networkErr");
+    }
     Swal.fire({
       icon: "error",
       title: err.response.data.message,
