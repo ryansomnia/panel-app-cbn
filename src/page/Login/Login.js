@@ -12,6 +12,7 @@ const [password, setPassword] =useState("");
 
 const navigate = useNavigate(); 
 
+console.log("halo");
 
 const saveUser = async (e) => {
   e.preventDefault();
